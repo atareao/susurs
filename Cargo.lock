@@ -688,7 +688,8 @@ dependencies = [
 [[package]]
 name = "shine-rs"
 version = "0.1.3"
-source = "git+https://github.com/wshon/shine-rs#b3154c22e4db8eb3f22290948ba20b3ce55326eb"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6135aba5a2334627cc67e726d20cd42d4218654b11d1467aeac83d977bfc70c1"
 dependencies = [
  "hound",
  "lazy_static",
