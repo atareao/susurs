@@ -615,9 +615,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 // --- Preset configurations ---
 type PresetResult = Result<(f32, f32, f32, f32, f32, f32, Option<i32>), Box<dyn std::error::Error>>;
 
-fn apply_preset(
-    preset_name: &str,
-) -> PresetResult {
+fn apply_preset(preset_name: &str) -> PresetResult {
     match preset_name.to_lowercase().as_str() {
         "human" => {
             println!("Applying 'human' preset for natural voice...");
