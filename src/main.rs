@@ -3,7 +3,6 @@ use sherpa_onnx::{OfflineTts, OfflineTtsConfig, OfflineTtsModelConfig, OfflineTt
 use shine_rs::{Mp3Encoder, Mp3EncoderConfig, StereoMode};
 use std::fs::File;
 use std::io::{self, Read, Write};
-use ureq;
 use dirs::data_dir;
 use bzip2::read::BzDecoder;
 use tar::Archive;
@@ -539,8 +538,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 
 
+type PresetResult = Result<(f32, f32, f32, f32, f32, f32, Option<i32>), Box<dyn std::error::Error>>;
+
 // --- Preset configurations ---
-fn apply_preset(preset_name: &str) -> Result<(f32, f32, f32, f32, f32, f32, Option<i32>), Box<dyn std::error::Error>> {
+fn apply_preset(preset_name: &str) -> PresetResult {
     match preset_name.to_lowercase().as_str() {
         "human" => {
             println!("Applying 'human' preset for natural voice...");
